@@ -1,4 +1,6 @@
 # Task1
 **Task1**
+v0.12
 
-1.First repository!
+
+Paprasciausiai ispausdinamas vardas tarp zvaigzduciu
