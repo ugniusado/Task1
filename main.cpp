@@ -1,60 +1,52 @@
 #include <iostream>
 using namespace std;
-void check(string vardas)
+struct eilutes
 {
- 
-    int id =vardas.length();
+    string vardas;
+    string FirstLine ="*********";
+    string SecondLine = "*       ";
+    string ViddleLine = "*Sveikas,";
+    string MiddleLine = "*Sveika,";
+    bool lytis;
+};
+void print(eilutes A)
+{ if(A.lytis)
+    {
+    int id =A.vardas.length();
     for(int i =0; i < id+1;i++)
-    cout <<"*";
-    cout <<endl;
-  
-}
-void checkspace(string vardas)
-{
- 
-    int id =vardas.length();
+        A.FirstLine+= "*";
     for(int i =0; i < id+1;i++)
-    cout <<" ";
-    cout <<"*" << endl;
-  
-}
-void print(string vardas, bool lytis)
-{ if(lytis)
-{
-  cout << "*********";
-  check(vardas);
-  cout << "*       ";
-  checkspace(vardas);
-  cout << "*Sveikas,"+vardas+"*"<<endl;
-  
-  
-  cout << "*       ";
-  checkspace(vardas);
-   cout << "*********";
-  check(vardas);
-}
-else 
-{
-cout << "********";
-  check(vardas);
-  cout << "*      ";
-  checkspace(vardas);
-  cout << "*Sveika,"+vardas+"*"<<endl;
-  
-  
-  cout << "*      ";
-  checkspace(vardas);
-   cout << "********";
-  check(vardas);
-}
+        A.SecondLine+=" ";
+        A.SecondLine+="*";
+        cout <<A.FirstLine<< endl;
+        cout << A.SecondLine<<endl;
+        A.ViddleLine+=A.vardas+"*";
+        cout << A.ViddleLine<<endl;
+        cout <<A.SecondLine<<endl;
+        cout << A.FirstLine<<endl;
+    }
+   else
+    {
+        int id =A.vardas.length();
+        for(int i =0; i < id;i++)
+            A.FirstLine+= "*";
+        for(int i =0; i < id;i++)
+            A.SecondLine+=" ";
+        A.SecondLine+="*";
+        cout <<A.FirstLine<< endl;
+        cout << A.SecondLine<<endl;
+        A.MiddleLine+=A.vardas+"*";
+        cout << A.MiddleLine<<endl;
+        cout <<A.SecondLine<<endl;
+        cout << A.FirstLine<<endl;
+    }
 }
 int main() {
- string vardas;
- cout <<"Jusu lytis vyras(1), moteris(0)" << endl;
- bool lytis;
- cin >> lytis;
- cout << " Iveskite savo varda" << endl;
- cin >> vardas;
- print (vardas, lytis);
+    eilutes A;
+    cout <<"Jusu lytis vyras(1), moteris(0)" << endl;
+    cin >> A.lytis;
+    cout << " Iveskite savo varda" << endl;
+    cin >> A.vardas;
+    print(A);
 
-  }
+}
