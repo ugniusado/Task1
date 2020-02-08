@@ -1,45 +1,30 @@
 #include <iostream>
 using namespace std;
-void check(string vardas)
+struct eilutes
 {
-
-    int id =vardas.length();
+    string vardas;
+    string FirstLine ="*********";
+    string SecondLine = "*       ";
+    string MiddleLine = "*Sveikas,";
+};
+void print(eilutes A)
+{    int id =A.vardas.length();
     for(int i =0; i < id+1;i++)
-    cout <<"*";
-    cout <<endl;
-
-}
-void checkspace(string vardas)
-{
-
-    int id =vardas.length();
+        A.FirstLine+= "*";
     for(int i =0; i < id+1;i++)
-    cout <<" ";
-    cout <<"*" << endl;
-
-}
-void print(string vardas)
-{
-
-  cout << "*********";
-  check(vardas);
-  cout << "*       ";
-  checkspace(vardas);
-  cout << "*Sveikas,"+vardas+"*"<<endl;
-
-
-  cout << "*       ";
-  checkspace(vardas);
-   cout << "*********";
-  check(vardas);
-
-
+        A.SecondLine+=" ";
+        A.SecondLine+="*";
+        cout <<A.FirstLine<< endl;
+        cout << A.SecondLine<<endl;
+        A.MiddleLine+=A.vardas+"*";
+        cout << A.MiddleLine<<endl;
+        cout <<A.SecondLine<<endl;
+        cout << A.FirstLine<<endl;
 }
 int main() {
- string vardas;
+    eilutes A;
+    cout << " Iveskite savo varda" << endl;
+    cin >> A.vardas;
+    print(A);
 
- cout << " Iveskite savo varda" << endl;
- cin >> vardas;
- print (vardas);
-
-  }
+}
